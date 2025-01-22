@@ -1,0 +1,36 @@
+﻿@using AplicacaoWebCantina.Models.Cliente
+@model ClientesModel;
+
+<div class="text-center">
+    <table class="table table-striped">
+        <h1 class="h1 m-4">Clientes</h1>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ajustes</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cliente in Model.Clientes)
+            {
+                <tr>
+                    <td>@cliente.Id</td>
+                    <td>@cliente.Nome</td>
+                    <td>
+                        <a type="button"
+                           class="btn btn-warning"
+                           asp-controller="Clientes"
+                           asp-action="Record"
+                           asp-route-id="@cliente.Id">Editar</a>
+                        <a type="button"
+                           class="btn btn-danger"
+                           asp-controller="Clientes"
+                           asp-action="Excluir"
+                           asp-route-id="@cliente.Id">Excluir</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

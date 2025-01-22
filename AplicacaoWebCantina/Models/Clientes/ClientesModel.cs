@@ -1,10 +1,10 @@
 ﻿namespace AplicacaoWebCantina.Models.Cliente
 {
-    public class Clientes
+    public class ClientesModel
     {
-        public List<ClienteModel> Cliente{ get; set; }
+        public List<ClienteModel> Clientes { get; set; }
 
-        public ClientesModel()
+        public ClientesModel() 
         {
             Clientes = new List<ClienteModel>();
         }
