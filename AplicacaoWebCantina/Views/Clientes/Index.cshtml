@@ -1,36 +1,36 @@
 ﻿@using AplicacaoWebCantina.Models.Clientes
-@model ClientesModel;
+@model ClientesModel
 
-<div class="text-center">
-        <h1 class="h1 m-4">Clientes</h1>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nome</th>
-                <th>Ajustes</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var cliente in Model.Clientes)
-            {
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Clientes</h1>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered shadow-sm">
+            <thead class="table-dark">
                 <tr>
-                    <td>@cliente.Id</td>
-                    <td>@cliente.Nome</td>
-                    <td>
-                        <a type="button"
-                           class="btn btn-warning"
-                           asp-controller="Clientes"
-                           asp-action="Record"
-                           asp-route-id="@cliente.Id">Editar</a>
-                        <a type="button"
-                           class="btn btn-danger"
-                           asp-controller="Clientes"
-                           asp-action="Excluir"
-                           asp-route-id="@cliente.Id">Excluir</a>
-                    </td>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col" class="text-center">Ações</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var cliente in Model.Clientes)
+                {
+                    <tr>
+                        <td>@cliente.Id</td>
+                        <td>@cliente.Nome</td>
+                        <td class="text-center">
+                            <a class="btn btn-warning btn-sm me-2"
+                               asp-controller="Clientes"
+                               asp-action="Record"
+                               asp-route-id="@cliente.Id">Editar</a>
+                            <a class="btn btn-danger btn-sm"
+                               asp-controller="Clientes"
+                               asp-action="Excluir"
+                               asp-route-id="@cliente.Id">Excluir</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

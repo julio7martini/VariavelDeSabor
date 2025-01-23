@@ -1,0 +1,62 @@
+﻿@using AplicacaoWebCantina.Models.Produto
+@model ProdutosModel;
+
+<div class="container mt-4">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Produtos</h1>
+        <p class="lead">Gerencie os produtos disponíveis na <b>Variável do Sabor</b>.</p>
+    </div>
+
+    <div class="card shadow">
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Lista de Produtos</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-hover table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço (R$)</th>
+                        <th scope="col" class="text-center">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model.Produtos.Any())
+                    {
+                        @foreach (var produto in Model.Produtos)
+                        {
+                            <tr>
+                                <td>@produto.ID</td>
+                                <td>@produto.Nome</td>
+                                <td>@produto.Preco.ToString("F2")</td>
+                                <td class="text-center">
+                                    <a type="button"
+                                       class="btn btn-sm btn-warning me-1"
+                                       asp-controller="Produtos"
+                                       asp-action="Record"
+                                       asp-route-id="@produto.ID">
+                                        <i class="fas fa-edit"></i> Editar
+                                    </a>
+                                    <a class="btn btn-sm btn-danger"
+                                       asp-controller="Produtos"
+                                       asp-action="Excluir"
+                                       asp-route-id="@produto.ID"
+                                       onclick="return confirm('Tem certeza que deseja excluir este produto?');">
+                                        <i class="fas fa-trash"></i> Excluir
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">Nenhum produto cadastrado.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
