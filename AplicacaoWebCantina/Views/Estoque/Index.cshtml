@@ -29,8 +29,17 @@
                 <td>@item.QuantidadeMinima</td>
                 <td>@item.DataUltimaReposicao.ToString("dd/MM/yyyy")</td>
                 <td>
-                    <a href="@Url.Action("Edit", "Estoque", new { id = item.Id })" class="btn btn-primary">Editar</a>
+                    <a href="@Url.Action("Edit", "Estoque", new { id = item.ID })" class="btn btn-primary">Editar</a>
+                    <a type="button"
+                       class="btn btn-sm btn-warning me-1"
+                       asp-controller="Produtos"
+                       @* asp-action="Record" *@
+                       asp-route-id="Produto.ID">
+                    Editar
+                    </a>
                 </td>
+
+
 
                 <td>
                     <a href="@Url.Action("Create", "Produto")" class="btn btn-primary">Adicionar</a>

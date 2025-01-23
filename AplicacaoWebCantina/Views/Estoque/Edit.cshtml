@@ -10,21 +10,24 @@
     <div class="form-group">
         <label asp-for="ProdutoId">Produto</label>
         <select asp-for="ProdutoId" class="form-control">
-            <option value="@Model.ProdutoId">@Model.ProdutoId</option>
+            <option value="@Model.Produto.Nome">@Model.Produto.Nome</option>
         </select>
     </div>
-
     <div class="form-group">
         <label asp-for="QuantidadeAtual">Quantidade Atual</label>
         <input asp-for="QuantidadeAtual" class="form-control" />
-    </div>
-
+    </div> 
+@*     <div class="form-group">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" class="form-control" />
+    </div> *@
     <div class="form-group">
         <label asp-for="QuantidadeMinima">Quantidade Mínima</label>
         <input asp-for="QuantidadeMinima" class="form-control" />
     </div>
-
+    <div class="form-group">
+        <label asp-for="DataUltimaReposicao">Data Última Reposição</label>
+        <input asp-for="DataUltimaReposicao" class="form-control" type="date" />
+    </div>
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
-
-
