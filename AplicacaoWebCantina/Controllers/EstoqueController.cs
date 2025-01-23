@@ -21,7 +21,7 @@ namespace AplicacaoWebCantina.Controllers
         {
             foreach (var estoque in Estoques)
             {
-                estoque.Produto = new Produto { Id = estoque.ProdutoId, Nome = "Produto " + estoque.ProdutoId };
+                estoque.Produto = new ProdutoModel { ID = estoque.ProdutoId, Nome = "Produto " + estoque.ProdutoId };
             }
 
             return View(Estoques);
@@ -33,7 +33,7 @@ namespace AplicacaoWebCantina.Controllers
             if (estoque == null)
                 return NotFound();
 
-            var produto = new Produto { Id = estoque.ProdutoId, Nome = "Produto " + estoque.ProdutoId };
+            var produto = new ProdutoModel { ID = estoque.ProdutoId, Nome = "Produto " + estoque.ProdutoId };
 
             estoque.Produto = produto;  
 
