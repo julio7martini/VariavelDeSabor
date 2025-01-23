@@ -1,6 +1,15 @@
-﻿namespace AplicacaoWebCantina.Models.Produto
+﻿using AplicacaoWebCantina.Models.Produto;
+
+
+namespace AplicacaoWebCantina.Models.Produto
 {
-    public class Produtos
+    public class ProdutosModel
     {
+        public List<ProdutoModel> Produtos { get; set; }
+
+        public ProdutosModel()
+        {
+            Produtos = new List<ProdutoModel>();
+        }
     }
 }

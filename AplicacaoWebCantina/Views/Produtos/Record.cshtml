@@ -1,0 +1,22 @@
+﻿@using AplicacaoWebCantina.Models.Produto
+@model ProdutoModel
+<div>
+    <h3>
+        Produto
+    </h3>
+    <form asp-controller="Produtos" asp-action="Save" method="post">
+        <input type="hidden" asp-for="ID">
+        <div class="form-group">
+            <label>Nome</label>
+            <input type="text" id="nome" class="form-control" asp-for="Nome" />
+        </div>
+
+        <div class="form-group">
+            <label>Preço</label>
+            <input type="text" id="preco" class="form-control" asp-for="Preco" />
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
+        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Jogadores" asp-action="Index">Voltar</a>
+    </form>
+</div>

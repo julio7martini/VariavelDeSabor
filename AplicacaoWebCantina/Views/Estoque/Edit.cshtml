@@ -1,21 +1,30 @@
-@model Estoque
+﻿@model AplicacaoWebCantina.Models.Estoque.EstoqueModel
 
-<h2>Editar Produto no Estoque</h2>
+@{
+    ViewData["Title"] = "Editar Produto no Estoque";
+}
+
+<h2>@ViewData["Title"]</h2>
 
 <form method="post">
     <div class="form-group">
         <label asp-for="ProdutoId">Produto</label>
         <select asp-for="ProdutoId" class="form-control">
-            <option value="@Model.ProdutoId">@Model.Produto.Nome</option>
+            <option value="@Model.ProdutoId">@Model.ProdutoId</option>
         </select>
     </div>
+
     <div class="form-group">
         <label asp-for="QuantidadeAtual">Quantidade Atual</label>
         <input asp-for="QuantidadeAtual" class="form-control" />
     </div>
+
     <div class="form-group">
-        <label asp-for="QuantidadeMinima">Quantidade M�nima</label>
+        <label asp-for="QuantidadeMinima">Quantidade Mínima</label>
         <input asp-for="QuantidadeMinima" class="form-control" />
     </div>
+
     <button type="submit" class="btn btn-primary">Salvar</button>
 </form>
+
+
