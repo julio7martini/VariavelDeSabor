@@ -22,7 +22,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Id</td>
+                <td>@item.ID</td>
                 <td>@item.ProdutoId</td>
                 <td>@item.Produto?.Nome</td>
                 <td>@item.QuantidadeAtual</td>
@@ -30,13 +30,6 @@
                 <td>@item.DataUltimaReposicao.ToString("dd/MM/yyyy")</td>
                 <td>
                     <a href="@Url.Action("Edit", "Estoque", new { id = item.ID })" class="btn btn-primary">Editar</a>
-                    <a type="button"
-                       class="btn btn-sm btn-warning me-1"
-                       asp-controller="Produtos"
-                       @* asp-action="Record" *@
-                       asp-route-id="Produto.ID">
-                    Editar
-                    </a>
                 </td>
 
 
