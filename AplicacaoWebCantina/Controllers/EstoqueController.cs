@@ -44,17 +44,13 @@ namespace AplicacaoWebCantina.Controllers
         [HttpPost]
         public IActionResult Edit(EstoqueModel estoque)
         {
-            if (ModelState.IsValid)
-            {
                 var estoqueExistente = Estoques.FirstOrDefault(e => e.Id == estoque.Id);
                 if (estoqueExistente != null)
                 {
                     estoqueExistente.QuantidadeAtual = estoque.QuantidadeAtual;
                     estoqueExistente.DataUltimaReposicao = estoque.DataUltimaReposicao;
                 }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(estoque);
+                return RedirectToAction("Index");
         }
     }
 }
