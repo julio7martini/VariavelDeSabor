@@ -1,5 +1,56 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model IEnumerable<AplicacaoWebCantina.Models.Pedido.Pedido>
+
 @{
+    ViewData["Title"] = "Lista de Pedidos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="mb-3">
+    <a href="@Url.Action("Adicionar", "Pedido")" class="btn btn-success">
+        Adicionar Novo Pedido
+    </a>
+</div>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Produto</th>
+            <th scope="col">Quantidade</th>
+            <th scope="col">Preço</th>
+            <th scope="col">Total</th>
+            <th scope="col">Data</th>
+            <th scope="col">Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pedido in Model)
+        {
+            <tr>
+                <td>@pedido.Id</td>
+                <td>@pedido.NomeProduto</td>
+                <td>@pedido.Quantidade</td>
+                <td>@pedido.Preco.ToString("C2")</td>
+                <td>@pedido.Total.ToString("C2")</td>
+                <td>@pedido.DateTime.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>
+                    <a href="@Url.Action("Editar", "Pedido", new { id = pedido.Id })" class="btn btn-warning btn-sm">Editar</a>
+
+                    <!-- Formulário para remover o pedido -->
+                    <form asp-action="Remover" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@pedido.Id" />
+                        <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info">
+        Nenhum pedido registrado.
+    </div>
 }

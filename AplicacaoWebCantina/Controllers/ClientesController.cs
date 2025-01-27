@@ -29,10 +29,24 @@ namespace AplicacaoWebCantina.Controllers
         {
             var cliente = _Clientes.FirstOrDefault(i => i.Id == model.Id);
 
-            cliente.Nome = model.Nome;
+            if (cliente == null)
+            {
+                cliente = new ClienteModel
+                {
+                    Id = _Clientes.Count > 0 ? _Clientes.Max(c => c.Id) + 1 : 1, // Próximo ID baseado na lista
+                    Nome = model.Nome
+                };
+
+                _Clientes.Add(cliente);
+            }
+            else
+            {
+                cliente.Nome = model.Nome;
+            }
 
             return RedirectToAction("Index");
         }
+
 
         public IActionResult Excluir(ClienteModel model)
         {
