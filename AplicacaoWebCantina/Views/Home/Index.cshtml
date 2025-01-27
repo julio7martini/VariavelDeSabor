@@ -13,28 +13,24 @@
 
     <div class="row mt-5">
         <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-success">Prato do Dia</h5>
-                    <p class="card-text">Hoje temos uma surpresa deliciosa com molho secreto, escolha seus ingredientes e descubra o sabor perfeito, do jeitinho que você gosta.</p>
-                </div>
+            <div class="feature-box shadow-lg">
+                <h5 class="feature-title text-success">Prato do Dia</h5>
+                <p class="feature-text">Hoje temos uma surpresa deliciosa com molho secreto. Escolha seus ingredientes e descubra o sabor perfeito, do jeitinho que você gosta.</p>
+                <button class="btn btn-success">Descubra Agora!</button>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-warning">Ingredientes Frescos</h5>
-                    <p class="card-text">Trabalhamos com ingredientes frescos e de qualidade, escolhidos especialmente para proporcionar uma refeição saborosa e saudável, para o seu prazer e bem-estar.</p>
-                </div>
+            <div class="feature-box shadow-lg">
+                <h5 class="feature-title text-warning">Ingredientes Frescos</h5>
+                <p class="feature-text">Trabalhamos com ingredientes frescos e de qualidade, escolhidos especialmente para proporcionar uma refeição saborosa e saudável.</p>
+                <button class="btn btn-warning">Veja Nossos Ingredientes</button>
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-info">O que dizem nossos clientes</h5>
-                    <p class="card-text">"Nunca experimentei algo tão delicioso! A cantina realmente faz com que você se sinta no controle do seu próprio sabor." - João Silva</p>
-                    <p class="font-weight-light">Experimente também e venha ser o chef do seu próprio prato!</p>
-                </div>
+            <div class="feature-box shadow-lg">
+                <h5 class="feature-title text-info">O que dizem nossos clientes</h5>
+                <p class="feature-text">"Nunca experimentei algo tão delicioso! A cantina realmente faz com que você se sinta no controle do seu próprio sabor." - João Silva</p>
+                <button class="btn btn-info">Leia Mais Depoimentos</button>
             </div>
         </div>
     </div>
@@ -45,3 +41,79 @@
         <p class="font-weight-light">Sua refeição, suas regras! Se aventure e personalize cada detalhe para que cada mordida seja uma surpresa agradável!</p>
     </div>
 </div>
+
+<style>
+    body {
+        background-color: #f0f4f8;
+        font-family: 'Arial', sans-serif;
+    }
+
+    h1.display-4 {
+        font-size: 3rem;
+        color: #007bff;
+        font-weight: bold;
+    }
+
+    p.lead {
+        font-size: 1.25rem;
+        color: #333;
+    }
+
+    .feature-box {
+        background-color: white;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+        border: 1px solid #e0e0e0;
+    }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 123, 255, 0.2);
+        }
+
+    .feature-title {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+
+    .feature-text {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+
+    .col-md-4 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+    footer {
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+    }
+
+    #explore {
+        background-color: #e9ecef;
+        padding: 40px 0;
+        border-radius: 8px;
+    }
+
+        #explore h3 {
+            color: #6c757d;
+        }
+
+        #explore p.font-weight-light {
+            color: #555;
+        }
+
+    .container {
+        margin-top: 40px;
+    }
+</style>
