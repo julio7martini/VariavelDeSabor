@@ -12,8 +12,8 @@ namespace AplicacaoWebCantina.Controllers
         // Dados mocados
         private static List<EstoqueModel> Estoques = new List<EstoqueModel>
 {
-             new EstoqueModel { Id = 1, ProdutoId = 101, QuantidadeAtual = 50, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-1) },
-             new EstoqueModel { Id = 2, ProdutoId = 102, QuantidadeAtual = 5, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-2) }
+             new EstoqueModel { ID = 1, ProdutoId = 101, QuantidadeAtual = 50, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-1) },
+             new EstoqueModel { ID = 2, ProdutoId = 102, QuantidadeAtual = 5, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-2) }
 };
 
         // Mostrar a View do estoque
@@ -29,7 +29,7 @@ namespace AplicacaoWebCantina.Controllers
 
         public IActionResult Edit(int id)
         {
-            var estoque = Estoques.FirstOrDefault(e => e.Id == id);
+            var estoque = Estoques.FirstOrDefault(e => e.ID == id);
             if (estoque == null)
                 return NotFound();
 
@@ -44,7 +44,7 @@ namespace AplicacaoWebCantina.Controllers
         [HttpPost]
         public IActionResult Edit(EstoqueModel estoque)
         {
-                var estoqueExistente = Estoques.FirstOrDefault(e => e.Id == estoque.Id);
+                var estoqueExistente = Estoques.FirstOrDefault(e => e.ID == estoque.ID);
                 if (estoqueExistente != null)
                 {
                     estoqueExistente.QuantidadeAtual = estoque.QuantidadeAtual;
