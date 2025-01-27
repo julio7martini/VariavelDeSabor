@@ -49,12 +49,29 @@ namespace AplicacaoWebCantina.Controllers
         {
             var produto = _Produtos.FirstOrDefault(i => i.ID == model.ID);
 
-            if (produto != null) // Verifica se o produto foi encontrado
+            if (produto != null) 
             {
                 _Produtos.Remove(produto); // Remove o produto da lista
             }
 
             return RedirectToAction("Index");
         }
+        public IActionResult Adicionar()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Adicionar(ProdutoModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                model.ID = _Produtos.Any() ? _Produtos.Max(p => p.ID) + 1 : 1;
+                _Produtos.Add(model); // Adiciona o produto na lista
+                return RedirectToAction("Index"); 
+            }
+            return View(model); 
+        }
+
     }
 }
