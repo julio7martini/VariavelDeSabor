@@ -1,9 +1,6 @@
 ﻿using AplicacaoWebCantina.Models.Estoque;
 using AplicacaoWebCantina.Models.Produto;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 
 namespace AplicacaoWebCantina.Controllers
 {
@@ -21,7 +18,6 @@ namespace AplicacaoWebCantina.Controllers
             new EstoqueModel { ID = 7, ProdutoId = 107, QuantidadeAtual = 25, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-7) }
         };
 
-        // Mostrar a View do estoque
         public IActionResult Index()
         {
             // Associando produtos fictícios aos estoques
@@ -50,25 +46,20 @@ namespace AplicacaoWebCantina.Controllers
             return View(estoque);
         }
 
-        // Processar a edição do estoque
         [HttpPost]
         public IActionResult Edit(EstoqueModel estoque)
         {
-            if (ModelState.IsValid)
-            {
-                var estoqueExistente = Estoques.FirstOrDefault(e => e.ID == estoque.ID);
+                var estoqueExistente = Estoques.FirstOrDefault(i => i.ID == estoque.ID);
                 if (estoqueExistente != null)
                 {
                     estoqueExistente.QuantidadeAtual = estoque.QuantidadeAtual;
                     estoqueExistente.QuantidadeMinima = estoque.QuantidadeMinima;
                     estoqueExistente.DataUltimaReposicao = estoque.DataUltimaReposicao;
 
-                    return RedirectToAction(nameof(Index));
                 }
-            }
-
-            // Se o modelo não for válido, exibir a tela de edição novamente
-            return View(estoque);
+                     return RedirectToAction("Index");
         }
+
+
     }
 }

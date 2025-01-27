@@ -6,24 +6,104 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<form method="post">
-    <div class="form-group">
-        <label asp-for="ProdutoId">Produto</label>
-        <select asp-for="ProdutoId" class="form-control">
-            <option value="@Model.Produto.Nome">@Model.Produto.Nome</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label asp-for="QuantidadeAtual">Quantidade Atual</label>
-        <input asp-for="QuantidadeAtual" class="form-control" />
-    </div> 
-    <div class="form-group">
-        <label asp-for="QuantidadeMinima">Quantidade Mínima</label>
-        <input asp-for="QuantidadeMinima" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label asp-for="DataUltimaReposicao">Data Última Reposição</label>
-        <input asp-for="DataUltimaReposicao" class="form-control" type="date" />
-    </div>
-    <button type="submit" class="btn btn-primary">Salvar</button>
-</form>
+<div class="form-container">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="ProdutoId">Produto</label>
+            <p class="product-name">@Model.Produto?.Nome</p>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="QuantidadeAtual">Quantidade Atual</label>
+            <input asp-for="QuantidadeAtual" class="form-control" placeholder="Digite a quantidade atual" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="QuantidadeMinima">Quantidade Mínima</label>
+            <input asp-for="QuantidadeMinima" class="form-control" placeholder="Digite a quantidade mínima" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="DataUltimaReposicao">Data Última Reposição</label>
+            <input asp-for="DataUltimaReposicao" class="form-control" type="date" />
+        </div>
+
+        <button type="submit" class="btn">Salvar</button>
+    </form>
+</div>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7fc;
+        color: #333;
+        margin: 0;
+        padding: 0;
+    }
+
+    .form-container {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 30px;
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+    .product-name {
+        font-size: 18px;
+        font-weight: 500;
+        color: #007bff;
+        margin: 5px 0;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        transition: border-color 0.3s;
+    }
+
+        .form-control:focus {
+            border-color: #007bff;
+            background-color: #fff;
+        }
+
+    .btn {
+        width: 100%;
+        padding: 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+</style>
