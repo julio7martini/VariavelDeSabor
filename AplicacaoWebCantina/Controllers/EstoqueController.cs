@@ -1,4 +1,4 @@
-﻿using AplicacaoWebCantina.Models.Estoque;
+using AplicacaoWebCantina.Models.Estoque;
 using AplicacaoWebCantina.Models.Produto;
 using Microsoft.AspNetCore.Mvc;
 using System;
