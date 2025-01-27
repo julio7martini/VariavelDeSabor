@@ -1,4 +1,4 @@
-﻿using AplicacaoWebCantina.Models.Estoque;
+using AplicacaoWebCantina.Models.Estoque;
 using AplicacaoWebCantina.Models.Produto;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,8 +12,17 @@ namespace AplicacaoWebCantina.Controllers
         // Dados mocados
         private static List<EstoqueModel> Estoques = new List<EstoqueModel>
 {
-             new EstoqueModel { ID = 1, ProdutoId = 101, QuantidadeAtual = 50, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-1) },
-             new EstoqueModel { ID = 2, ProdutoId = 102, QuantidadeAtual = 5, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-2) }
+            new EstoqueModel { ID = 1, ProdutoId = 101, QuantidadeAtual = 50, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-1) },
+            new EstoqueModel { ID = 2, ProdutoId = 102, QuantidadeAtual = 5, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-2) },
+            new EstoqueModel { ID = 3, ProdutoId = 103, QuantidadeAtual = 200, QuantidadeMinima = 100, DataUltimaReposicao = DateTime.Now.AddMonths(-3) },
+            new EstoqueModel { ID = 4, ProdutoId = 104, QuantidadeAtual = 15, QuantidadeMinima = 5, DataUltimaReposicao = DateTime.Now.AddMonths(-1) },
+            new EstoqueModel { ID = 5, ProdutoId = 105, QuantidadeAtual = 30, QuantidadeMinima = 10, DataUltimaReposicao = DateTime.Now.AddMonths(-6) },
+            new EstoqueModel { ID = 6, ProdutoId = 106, QuantidadeAtual = 75, QuantidadeMinima = 20, DataUltimaReposicao = DateTime.Now.AddMonths(-4) },
+            new EstoqueModel { ID = 7, ProdutoId = 107, QuantidadeAtual = 45, QuantidadeMinima = 20, DataUltimaReposicao = DateTime.Now.AddMonths(-2) },
+            new EstoqueModel { ID = 8, ProdutoId = 108, QuantidadeAtual = 300, QuantidadeMinima = 150, DataUltimaReposicao = DateTime.Now.AddMonths(-5) },
+            new EstoqueModel { ID = 9, ProdutoId = 109, QuantidadeAtual = 80, QuantidadeMinima = 30, DataUltimaReposicao = DateTime.Now.AddMonths(-7) },
+            new EstoqueModel { ID = 10, ProdutoId = 110, QuantidadeAtual = 60, QuantidadeMinima = 25, DataUltimaReposicao = DateTime.Now.AddMonths(-3) }
+
 };
 
         // Mostrar a View do estoque
@@ -48,6 +57,7 @@ namespace AplicacaoWebCantina.Controllers
                 if (estoqueExistente != null)
                 {
                     estoqueExistente.QuantidadeAtual = estoque.QuantidadeAtual;
+                    estoqueExistente.QuantidadeMinima = estoque.QuantidadeMinima;
                     estoqueExistente.DataUltimaReposicao = estoque.DataUltimaReposicao;
                 }
                 return RedirectToAction("Index");

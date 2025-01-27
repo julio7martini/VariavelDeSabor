@@ -1,22 +1,69 @@
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
 }
+
+
+.navbar {
+    background-color: #007bff; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Links do menu */
+.navbar-nav {
+    justify-content: center; /* Centralizar os links */
+}
+
+.nav-link {
+    color: #ffffff; 
+    font-size: 1.1rem;
+    font-weight: 500;
+    padding: 10px 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+    .nav-link:hover {
+        background-color: #0056b3; 
+        color: #fff; 
+        border-radius: 10px; 
+        transform: scale(1.1); 
+        text-decoration: none; 
+    }
+
+    /* Link ativo */
+    .nav-link.active {
+        background-color: #004085;
+        color: #fff; 
+        border-radius: 10px;
+        font-weight: bold;
+    }
+
+/* Footer personalizado */
+footer {
+    background-color: #007bff; 
+}
+
+    footer h3 {
+        text-align: center;
+        color: white;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }

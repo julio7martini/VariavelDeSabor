@@ -1,3 +1,4 @@
 .vs
 AplicacaoWebCantina/obj
 AplicacaoWebCantina/bin
+/AplicacaoWebCantina/Controllers/EstoqueController.cs
