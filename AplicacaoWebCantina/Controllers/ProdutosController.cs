@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AplicacaoWebCantina.Models.Produto;
-using AplicacaoWebCantina.Models.Cliente;
 
 namespace AplicacaoWebCantina.Controllers
 {
