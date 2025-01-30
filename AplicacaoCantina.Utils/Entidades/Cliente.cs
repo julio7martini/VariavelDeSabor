@@ -19,7 +19,7 @@ namespace AplicacaoCantina.Utils.Entidades
             using (MySqlConnection conn = new MySqlConnection(DBConenection.CONNECTION_STRING))
             {
                 conn.Open();
-                var query = $"SELECT ID, NOME FROM CLIENTES WHERE ID = {id}";
+                var query = $"SELECT ID, NOME FROM CLIENTE WHERE ID = {id}";
                 var cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.Add(new MySqlParameter("ID", id));
 
@@ -43,7 +43,7 @@ namespace AplicacaoCantina.Utils.Entidades
             using (MySqlConnection conn = new MySqlConnection(DBConenection.CONNECTION_STRING))
             {
                 conn.Open();
-                var query = "SELECT ID, NOME FROM CLIENTES";
+                var query = "SELECT ID, NOME FROM CLIENTE";
                 var cmd = new MySqlCommand(query, conn);
 
                 var reader = cmd.ExecuteReader();
