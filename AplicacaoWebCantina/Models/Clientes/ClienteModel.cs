@@ -16,5 +16,14 @@ namespace AplicacaoWebCantina.Models.Clientes
             Id = cliente.Id;
             Nome = cliente.Nome;
         }
+
+        public Cliente GetEntidade()
+        {
+            return new Cliente()
+            {
+                Id = Id,
+                Nome = Nome
+            };
+        }
     }
 }

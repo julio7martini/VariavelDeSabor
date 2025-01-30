@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace AplicacaoCantina.Utils.Database
 {
-    public class DBConenection
+    public class DBConnection
     {
-        public const string CONNECTION_STRING = "Server=localhost;Database=mydb;User ID=root;Password=senha;";
+        public const string CONNECTION_STRING = "Server=localhost;Database=mydb;User ID=root;Password=@1@senac2021;";
 
         public static bool TestarConexao()
         {
             try
             {
-                using (MySqlConnection conn = new MySqlConnection(DBConenection.CONNECTION_STRING))
+                using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
                 { 
                     conn.Open(); 
                     return true;

@@ -16,7 +16,7 @@ namespace AplicacaoCantina.Utils.Entidades
 
         public static Cliente Get(int id)
         {
-            using (MySqlConnection conn = new MySqlConnection(DBConenection.CONNECTION_STRING))
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
             {
                 conn.Open();
                 var query = $"SELECT ID, NOME FROM CLIENTE WHERE ID = {id}";
@@ -40,7 +40,7 @@ namespace AplicacaoCantina.Utils.Entidades
         {
             var result = new List<Cliente>(); 
 
-            using (MySqlConnection conn = new MySqlConnection(DBConenection.CONNECTION_STRING))
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
             {
                 conn.Open();
                 var query = "SELECT ID, NOME FROM CLIENTE";
@@ -57,6 +57,42 @@ namespace AplicacaoCantina.Utils.Entidades
                 }
             }
             return result;
+        }
+
+        public void Create() 
+        {
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand(); 
+                cmd.CommandText = "INSERT INTO CLIENTE (NOME) VALUE (@pNOME)";
+                cmd.Parameters.Add(new MySqlParameter("pNome", Nome));
+                cmd.ExecuteNonQuery();
+
+            }
+        }
+        public void Update()
+        {
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand(); 
+                cmd.CommandText = $"UPDATE CLIENTE SET NOME = @pNOME WHERE ID = @pID";
+                cmd.Parameters.Add(new MySqlParameter("pNOME", Nome));
+                cmd.Parameters.Add(new MySqlParameter("pId", Id));
+                cmd.ExecuteNonQuery();
+            }
+        }
+        public void Delete()
+        {
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
+            {
+                conn.Open();
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = $"DELETE FROM CLIENTE WHERE ID = @pID";
+                cmd.Parameters.Add(new MySqlParameter("pId", Id));
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }
