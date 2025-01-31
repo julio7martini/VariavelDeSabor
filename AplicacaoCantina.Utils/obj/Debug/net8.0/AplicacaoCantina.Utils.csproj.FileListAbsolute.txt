@@ -11,3 +11,16 @@ C:\Users\pedro.neto10\Documents\Git\VariavelDeSabor\AplicacaoCantina.Utils\obj\D
 C:\Users\pedro.neto10\Documents\Git\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\refint\AplicacaoCantina.Utils.dll
 C:\Users\pedro.neto10\Documents\Git\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.pdb
 C:\Users\pedro.neto10\Documents\Git\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\ref\AplicacaoCantina.Utils.dll
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net8.0\AplicacaoCantina.Utils.deps.json
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net8.0\AplicacaoCantina.Utils.dll
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net8.0\AplicacaoCantina.Utils.pdb
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.csproj.AssemblyReference.cache
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.AssemblyInfoInputs.cache
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.AssemblyInfo.cs
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.csproj.CoreCompileInputs.cache
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.sourcelink.json
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.dll
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\refint\AplicacaoCantina.Utils.dll
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\AplicacaoCantina.Utils.pdb
+C:\Users\julio.martini\Documents\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net8.0\ref\AplicacaoCantina.Utils.dll

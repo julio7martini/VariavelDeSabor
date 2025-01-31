@@ -1,76 +1,67 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AplicacaoWebCantina.Models.Produto;
+using AplicacaoCantina.Utils.Entidades;
+using AplicacaoCantina.Models.Produto;
 
 namespace AplicacaoWebCantina.Controllers
 {
     public class ProdutosController : Controller
     {
-        static List<ProdutoModel> _Produtos = new List<ProdutoModel>() {
-            new ProdutoModel(){ ID = 1, Nome = "Coxinha", Preco = 5.00 },
-            new ProdutoModel(){ ID = 2, Nome = "Pastel de Carne", Preco = 6.50 },
-            new ProdutoModel(){ ID = 3, Nome = "Kibe", Preco = 4.00 },
-            new ProdutoModel(){ ID = 4, Nome = "Pão de Queijo", Preco = 3.50 },
-            new ProdutoModel(){ ID = 5, Nome = "Suco de Laranja", Preco = 4.50 },
-            new ProdutoModel(){ ID = 6, Nome = "Refrigerante Lata", Preco = 5.00 },
-            new ProdutoModel(){ ID = 7, Nome = "Água Mineral", Preco = 2.50 },
-            new ProdutoModel(){ ID = 8, Nome = "Torta de Limão", Preco = 7.00 },
-            new ProdutoModel(){ ID = 9, Nome = "Brigadeiro", Preco = 2.00 },
-            new ProdutoModel(){ ID = 10, Nome = "Café Expresso", Preco = 3.00 },
-        };
-
         public IActionResult Index()
         {
-            var model = new ProdutosModel() { Produtos = _Produtos };
+            var model = new ProdutosModel();
+            model.Produtos = new List<ProdutoModel>();
+
+            var produtos = Produto.GetAll();
+
+           
+            model.Produtos = produtos.Select(produtoEntidade => new ProdutoModel(produtoEntidade)).ToList();
+
             return View(model);
         }
 
-        public IActionResult Record(long id)
+        private string? ProdutosModel()
         {
-            var model = _Produtos.FirstOrDefault(produto => produto.ID == id);
+            throw new NotImplementedException();
+        }
+
+        public IActionResult Record(int? id)
+        {
+            var model = new ProdutoModel();
+
+            if (id.HasValue)
+            {
+                model = new ProdutoModel(Produto.Get(id.Value));
+            }
+
             return View(model);
         }
 
         [HttpPost]
-        public IActionResult Save(ProdutoModel model)
+        public IActionResult Record(ProdutoModel model, string type)
         {
-            var produto = _Produtos.FirstOrDefault(i => i.ID == model.ID);
-
-            if (produto != null)
+            Produto produto = model.GetEntidade();
+            if (type == "save")
             {
-                produto.Nome = model.Nome;
-                produto.Preco = model.Preco;
+                if (produto.ID > 0)
+                {
+                    produto.Update();
+                }
+                else
+                {
+                    produto.Create();
+                }
+            }
+            else if (type == "delete")
+            {
+                produto.Delete();
+            }
+            else
+            {
+                return BadRequest("Requisição inválida!");
             }
 
             return RedirectToAction("Index");
         }
-
-        public IActionResult Excluir(ProdutoModel model)
-        {
-            var produto = _Produtos.FirstOrDefault(i => i.ID == model.ID);
-
-            if (produto != null) 
-            {
-                _Produtos.Remove(produto); // Remove o produto da lista
-            }
-
-            return RedirectToAction("Index");
-        }
-        public IActionResult Adicionar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Adicionar(ProdutoModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.ID = _Produtos.Any() ? _Produtos.Max(p => p.ID) + 1 : 1;
-                _Produtos.Add(model); // Adiciona o produto na lista
-                return RedirectToAction("Index"); 
-            }
-            return View(model); 
-        }
-
     }
 }
