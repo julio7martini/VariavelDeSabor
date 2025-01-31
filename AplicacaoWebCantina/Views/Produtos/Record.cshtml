@@ -1,22 +1,29 @@
 ﻿@using AplicacaoWebCantina.Models.Produto
 @model ProdutoModel
+
 <div>
-    <h3>
-        Produto
-    </h3>
-    <form asp-controller="Produtos" asp-action="Save" method="post">
-        <input type="hidden" asp-for="ID">
+    <h3>Cadastro de Produto - Variável do Sabor</h3>
+    <form asp-controller="Produtos" asp-action="Salvar" method="post">
+        <input type="hidden" name="id" asp-for="ID" />
+
         <div class="form-group">
             <label>Nome</label>
-            <input type="text" id="nome" class="form-control" asp-for="Nome" />
+            <input type="text" id="nome" class="form-control" asp-for="Nome" placeholder="Nome do produto" required />
         </div>
 
         <div class="form-group">
-            <label>Preço</label>
-            <input type="text" id="preco" class="form-control" asp-for="Preco" />
+            <label>Preço (R$)</label>
+            <input type="number" id="preco" class="form-control" asp-for="Preco" placeholder="Preço do produto" step="0.01" min="0" required />
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
-        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Jogadores" asp-action="Index">Voltar</a>
+
+        <br />
+        <button class="btn btn-primary float-end m-1" type="submit" asp-route-type="save">Salvar</button>
+
+        @if (Model.ID > 0)
+        {
+            <button class="btn btn-danger float-end m-1" type="submit" asp-route-type="delete" onclick="return confirm('Tem certeza que deseja excluir este produto?');">
+                Excluir
+            </button>
+        }
     </form>
 </div>
