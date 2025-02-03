@@ -7,9 +7,8 @@ namespace AplicacaoWebCantina.Controllers
     public class ClientesController : Controller
     {
 
-        public IActionResult record(ClienteModel model, long id)
+        public IActionResult record(ClienteModel model)
         {
-            Cliente cliente = model.GetEntidade();
 
             return View(model);
         }

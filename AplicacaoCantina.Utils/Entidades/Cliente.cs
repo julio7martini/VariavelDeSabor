@@ -9,32 +9,10 @@ using MySqlX.XDevAPI.Common;
 
 namespace AplicacaoCantina.Utils.Entidades
 {
-    public class Cliente
+    public class Cliente : EntidadeBase
     {
-        public int Id { get; set; }
+        protected override string TableName => "CLIENTE";
         public string Nome { get; set; }
-
-        public static Cliente Get(int id)
-        {
-            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
-            {
-                conn.Open();
-                var query = $"SELECT ID, NOME FROM CLIENTE WHERE ID = {id}";
-                var cmd = new MySqlCommand(query, conn);
-                cmd.Parameters.Add(new MySqlParameter("ID", id));
-
-                var reader = cmd.ExecuteReader();
-                if (reader.Read()) 
-                {
-                    return new Cliente
-                    {
-                        Id = reader.GetInt32("ID"),
-                        Nome = reader.GetString("NOME")
-                    };
-                }
-            }
-            return null;
-        }
 
         public static List<Cliente> GetAll()
         {
@@ -83,16 +61,6 @@ namespace AplicacaoCantina.Utils.Entidades
                 cmd.ExecuteNonQuery();
             }
         }
-        public void Delete()
-        {
-            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
-            {
-                conn.Open();
-                var cmd = conn.CreateCommand();
-                cmd.CommandText = $"DELETE FROM CLIENTE WHERE ID = @pID";
-                cmd.Parameters.Add(new MySqlParameter("pId", Id));
-                cmd.ExecuteNonQuery();
-            }
-        }
+        
     }
 }
