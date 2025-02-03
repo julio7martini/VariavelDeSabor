@@ -9,7 +9,7 @@ namespace AplicacaoCantina.Utils.Database
 {
     public class DBConnection
     {
-        public const string CONNECTION_STRING = "Server=localhost;Database=mydb;User ID=root;Password=@1@senac2021;";
+        public const string CONNECTION_STRING = "Server=localhost;Database=mydb;User ID=root;Password=;";
 
         public static bool TestarConexao()
         {
