@@ -6,61 +6,49 @@ using System.Text;
 using System.Threading.Tasks;
 using AplicacaoCantina.Utils.Database;
 using MySqlX.XDevAPI.Common;
+using System.Numerics;
 
 namespace AplicacaoCantina.Utils.Entidades
 {
-    public class Cliente : EntidadeBase
+    public class Cliente : EntidadeBase<Cliente>
     {
         protected override string TableName => "CLIENTE";
+        protected override List<string> Fields => new List<string>()
+        {
+            "ID",
+            "NOME",
+        };
         public string Nome { get; set; }
 
-        public static List<Cliente> GetAll()
+        protected override Cliente Fill(MySqlDataReader reader)
         {
-            var result = new List<Cliente>(); 
+            var aux = new Cliente();
 
-            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
-            {
-                conn.Open();
-                var query = "SELECT ID, NOME FROM CLIENTE";
-                var cmd = new MySqlCommand(query, conn);
+            aux.ID = reader.GetInt32("ID");
+            aux.Nome = reader.GetString("NOME");
 
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    result.Add(new Cliente()
-                    {
-                        Id = reader.GetInt32("ID"),
-                        Nome = reader.GetString("NOME")
-                    });
-                }
-            }
-            return result;
+            return aux;
         }
 
-        public void Create() 
+        public void Create()
         {
             using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
             {
                 conn.Open();
-                var cmd = conn.CreateCommand(); 
-                cmd.CommandText = "INSERT INTO CLIENTE (NOME) VALUE (@pNOME)";
-                cmd.Parameters.Add(new MySqlParameter("pNome", Nome));
-                cmd.ExecuteNonQuery();
 
-            }
-        }
-        public void Update()
-        {
-            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
-            {
-                conn.Open();
-                var cmd = conn.CreateCommand(); 
-                cmd.CommandText = $"UPDATE CLIENTE SET NOME = @pNOME WHERE ID = @pID";
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = @$"INSERT INTO {TableName} (NOME) 
+                                        VALUES (@pNOME)";
+
                 cmd.Parameters.Add(new MySqlParameter("pNOME", Nome));
-                cmd.Parameters.Add(new MySqlParameter("pId", Id));
+
                 cmd.ExecuteNonQuery();
             }
         }
-        
+
+        protected override void FillParameters(MySqlParameterCollection parameters)
+        {
+            parameters.Add(new MySqlParameter("pNOME", Nome));
+        }
     }
 }

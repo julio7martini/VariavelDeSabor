@@ -1,0 +1,12 @@
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net6.0\AplicacaoCantina.Utils.deps.json
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net6.0\AplicacaoCantina.Utils.dll
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\bin\Debug\net6.0\AplicacaoCantina.Utils.pdb
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.csproj.AssemblyReference.cache
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.AssemblyInfoInputs.cache
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.AssemblyInfo.cs
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.csproj.CoreCompileInputs.cache
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.dll
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\refint\AplicacaoCantina.Utils.dll
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.pdb
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\ref\AplicacaoCantina.Utils.dll

@@ -1,5 +1,4 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Numerics;
+﻿using System.Numerics;
 using AplicacaoCantina.Utils.Entidades;
 
 namespace AplicacaoWebCantina.Models.Clientes
@@ -13,7 +12,7 @@ namespace AplicacaoWebCantina.Models.Clientes
 
         public ClienteModel(Cliente cliente)
         {
-            Id = cliente.Id;
+            Id = cliente.ID;
             Nome = cliente.Nome;
         }
 
@@ -21,7 +20,7 @@ namespace AplicacaoWebCantina.Models.Clientes
         {
             return new Cliente()
             {
-                Id = Id,
+                ID = Id,
                 Nome = Nome
             };
         }
