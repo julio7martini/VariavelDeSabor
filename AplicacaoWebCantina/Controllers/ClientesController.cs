@@ -24,7 +24,7 @@ namespace AplicacaoWebCantina.Controllers
             }
             else
             {
-                cliente.Create();
+               // cliente.Create();
             }
             return RedirectToAction("index");
         }
@@ -43,7 +43,7 @@ namespace AplicacaoWebCantina.Controllers
             var model = new ClientesModel();
             model.Clientes = new List<ClienteModel>();
 
-            var clientes = Cliente.GetAll();
+            var clientes = new Cliente().GetAll();
 
             model.Clientes = clientes.Select(clienteEntidade => new ClienteModel(clienteEntidade)).ToList();
 
