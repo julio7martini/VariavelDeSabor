@@ -13,9 +13,7 @@ namespace AplicacaoCantina.Utils.Entidades
     {
         public int Id {  get; set; }
         protected abstract string TableName { get; }
-
         protected abstract List<string> Fields { get; }
-
         protected abstract T Fill(MySqlDataReader reader);
         protected abstract void FillParameters(MySqlParameterCollection parameters);
 
@@ -45,7 +43,7 @@ namespace AplicacaoCantina.Utils.Entidades
             using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
             {
                 conn.Open();
-                var query = $"SELECT {string.Join(", ", Fields)} FROM CLIENTE";
+                var query = $"SELECT {string.Join(", ", Fields)} FROM {TableName}";
                 var cmd = new MySqlCommand(query, conn);
 
                 var reader = cmd.ExecuteReader();
@@ -70,6 +68,22 @@ namespace AplicacaoCantina.Utils.Entidades
             }
         }
 
+        public void Update()
+        {
+            using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
+            {
+                conn.Open();
+
+                var cmd = conn.CreateCommand();
+                cmd.CommandText = @$"UPDATE {TableName} SET {string.Join(", ", Fields.Select(campo => $"{campo} = @p{campo}"))}
+                                   WHERE ID = @pID";
+
+                cmd.Parameters.Add(new MySqlParameter("pID", Id));
+                FillParameters(cmd.Parameters);
+
+                cmd.ExecuteNonQuery();
+            }
+        }
 
         //public void Create()
         //{
@@ -83,6 +97,6 @@ namespace AplicacaoCantina.Utils.Entidades
 
         //    }
         //}
-        
+
     }
 }

@@ -29,23 +29,27 @@ namespace AplicacaoCantina.Utils.Entidades
 
             return aux;
         }
-        
-        protected override void FillParameters(MySqlParameterCollection parameters)
-        {
-            parameters.Add(new MySqlParameter("pNOME", Nome));
 
-        }
-        public void Update()
+        public void Create()
         {
             using (MySqlConnection conn = new MySqlConnection(DBConnection.CONNECTION_STRING))
             {
                 conn.Open();
+
                 var cmd = conn.CreateCommand();
-                cmd.CommandText = $"UPDATE {TableName} SET NOME = @pNOME WHERE ID = @pID";
+                cmd.CommandText = @"INSERT INTO CLIENTE (NOME)
+                                        VALUES (@pNOME)";
+
                 cmd.Parameters.Add(new MySqlParameter("pNOME", Nome));
-                cmd.Parameters.Add(new MySqlParameter("pId", Id));
+
                 cmd.ExecuteNonQuery();
             }
+        }
+
+        protected override void FillParameters(MySqlParameterCollection parameters)
+        {
+            parameters.Add(new MySqlParameter("pNOME", Nome));
+
         }
     }
 }
