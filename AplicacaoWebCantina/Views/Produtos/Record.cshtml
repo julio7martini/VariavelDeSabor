@@ -1,22 +1,21 @@
-﻿@using AplicacaoWebCantina.Models.Produto
+﻿@using AplicacaoWebCantina.Models.Produtos
 @model ProdutoModel
-<div>
-    <h3>
-        Produto
-    </h3>
-    <form asp-controller="Produtos" asp-action="Save" method="post">
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Editar Produto</h2>
+    <form asp-controller="Produtos" asp-action="Save" method="post" class="p-4 border rounded shadow-sm bg-light">
         <input type="hidden" asp-for="ID">
-        <div class="form-group">
-            <label>Nome</label>
-            <input type="text" id="nome" class="form-control" asp-for="Nome" />
+
+        <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" asp-for="Nome" required>
+            <label for="preco" class="form-label">Preco</label>
+            <input type="text" class="form-control" id="preco" asp-for="Preco" required>
         </div>
 
-        <div class="form-group">
-            <label>Preço</label>
-            <input type="text" id="preco" class="form-control" asp-for="Preco" />
+        <div class="d-flex justify-content-end">
+            <a class="btn btn-secondary me-2" asp-controller="Produtos" asp-action="Index">Voltar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
-        <br>
-        <button type="submit" class="btn btn-primary float-end m-1">Salvar</button>
-        <a type="button" class="btn btn-secondary float-end m-1" asp-controller="Jogadores" asp-action="Index">Voltar</a>
     </form>
-</div>
+</div>                  

@@ -1,4 +1,4 @@
-﻿@using AplicacaoWebCantina.Models.Produto
+﻿@using AplicacaoWebCantina.Models.Produtos
 @model ProdutoModel
 
 <div class="container mt-4">
@@ -6,11 +6,10 @@
 
     <div class="card shadow">
         <div class="card-body">
-            <form asp-controller="Produtos" asp-action="Adicionar" method="post">
-                <div class="mb-3">
-                    <label for="Nome" class="form-label">Nome do Produto</label>
-                    <input type="text" class="form-control" id="Nome" name="Nome" value="@Model?.Nome" required>
-                </div>
+            <div class="mb-3">
+                <a class="btn btn-primary btn-lg me-2" asp-controller="Clientes"
+                   asp-action="Record">Adicionar</a>
+            </div>
 
                 <div class="mb-3">
                     <label for="Preco" class="form-label">Preço (R$)</label>
@@ -20,7 +19,6 @@
                 <button type="submit" class="btn btn-success w-100">
                     <i class="fas fa-plus"></i> Adicionar Produto
                 </button>
-            </form>
         </div>
     </div>
 </div>

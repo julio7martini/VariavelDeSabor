@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Produtos\Adicionar.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\AplicacaoCantina.Utils\AplicacaoCantina.Utils.csproj" />
   </ItemGroup>
 

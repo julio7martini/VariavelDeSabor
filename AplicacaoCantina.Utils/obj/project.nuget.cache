@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9MzDUe64SjgFbVl1nwht6RuqNJgBiaF2wk/RAtE6+wz4epStA1dfs8uNINEr7aGKlZQKsnyaX0uWeBd3bRA2GA==",
+  "dgSpecHash": "pYq0bz1cAOif2rr7KuwWM37TqFki+UfBqcSy9ftEAPGPhpjyJ70VFvslYbOmUWQ96go9a+x1v2Kb+Tmq9YiIuw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\julio.martini\\Documents\\Visual Studio 2022\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
+  "projectFilePath": "C:\\Users\\julio.martini\\Source\\Repos\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\julio.martini\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\julio.martini\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
