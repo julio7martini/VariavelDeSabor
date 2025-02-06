@@ -1631,23 +1631,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\pedro.neto10\\.nuget\\packages\\": {},
+    "C:\\Users\\julio.martini\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\pedro.neto10\\Source\\Repos\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
+      "projectUniqueName": "C:\\Users\\julio.martini\\Documents\\Visual Studio 2022\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
       "projectName": "AplicacaoCantina.Utils",
-      "projectPath": "C:\\Users\\pedro.neto10\\Source\\Repos\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
-      "packagesPath": "C:\\Users\\pedro.neto10\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\pedro.neto10\\Source\\Repos\\VariavelDeSabor\\AplicacaoCantina.Utils\\obj\\",
+      "projectPath": "C:\\Users\\julio.martini\\Documents\\Visual Studio 2022\\VariavelDeSabor\\AplicacaoCantina.Utils\\AplicacaoCantina.Utils.csproj",
+      "packagesPath": "C:\\Users\\julio.martini\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\julio.martini\\Documents\\Visual Studio 2022\\VariavelDeSabor\\AplicacaoCantina.Utils\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\pedro.neto10\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\julio.martini\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
