@@ -20,7 +20,7 @@ namespace AplicacaoCantina.Utils.Entidades
             "PRECO",
         };
         public string Nome { get; set; }
-        public string Preco { get; set; }
+        public decimal Preco { get; set; }
 
         protected override Produto Fill(MySqlDataReader reader)
         {
@@ -28,7 +28,7 @@ namespace AplicacaoCantina.Utils.Entidades
 
             aux.ID = reader.GetInt32("ID");
             aux.Nome = reader.GetString("NOME");
-            aux.Preco = reader.GetString("PRECO");
+            aux.Preco = reader.GetDecimal("PRECO");
 
             return aux;
         }
