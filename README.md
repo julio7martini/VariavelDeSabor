@@ -39,11 +39,8 @@ Grid de Estoque: Exibe o estoque atual de todos os produtos com opções de atua
 Alertas: Notifica quando o estoque de um produto está abaixo do nível mínimo.
 
 3. Tecnologias Utilizadas
-Frontend: React.js (interface responsiva com grids e formulários).
+Frontend: HTML, CSS e JS com C#.
 
-Backend: Node.js (API REST para operações CRUD).
+Backend: C#/.NET.
 
-Banco de Dados: PostgreSQL (armazenamento de dados).
-
-Autenticação: JWT (JSON Web Token) para segurança.
-
+Banco de Dados: MySQL Workbench.
