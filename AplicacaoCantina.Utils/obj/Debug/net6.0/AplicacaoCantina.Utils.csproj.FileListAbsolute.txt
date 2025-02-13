@@ -34,3 +34,4 @@ C:\Users\julio.martini\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\D
 C:\Users\julio.martini\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\refint\AplicacaoCantina.Utils.dll
 C:\Users\julio.martini\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.pdb
 C:\Users\julio.martini\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\ref\AplicacaoCantina.Utils.dll
+C:\Users\pedro.neto10\Source\Repos\VariavelDeSabor\AplicacaoCantina.Utils\obj\Debug\net6.0\AplicacaoCantina.Utils.sourcelink.json

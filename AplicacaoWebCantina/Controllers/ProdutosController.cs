@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AplicacaoWebCantina.Models.Produtos;
 using AplicacaoCantina.Utils.Entidades;
+using AplicacaoWebCantina.Models.Clientes;
 
 namespace AplicacaoWebCantina.Controllers
 {
@@ -50,5 +51,40 @@ namespace AplicacaoWebCantina.Controllers
             return View(model);
         }
 
+        [HttpGet("api/v1/Produtos")]
+        public IActionResult Get()
+        {
+            var result = new Produto().GetAll().Select(produto => new ProdutoModel(produto));
+
+            return Ok(result);
+        }
+
+        [HttpPost("api/v1/Produto")]
+        public IActionResult Post([FromBody] ProdutoModel produto)
+        {
+            var produtoEntidade = produto.GetEntidade();
+            produtoEntidade.Create();
+
+            return Ok("Produto Adicionado");
+        }
+
+        [HttpPut("api/v1/Produto/{id}")]
+        public IActionResult Put(int id, [FromBody] ProdutoModel produtoAtualizado)
+        {
+            var produtoDB = new Produto().Get(id);
+            produtoDB.Nome = produtoAtualizado.Nome ?? produtoDB.Nome;
+            produtoDB.Update();
+
+            return Ok("Produto atualizado!");
+        }
+
+        [HttpDelete("api/v1/Produtos/{id}")]
+        public IActionResult Delete(int id)
+        {
+            var produto = new Produto().Get(id);
+            produto.Delete();
+
+            return Ok("Produto Deletado");
+        }
     }
 }

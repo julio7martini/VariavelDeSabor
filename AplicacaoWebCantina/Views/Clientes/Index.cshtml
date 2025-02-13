@@ -1,12 +1,14 @@
 ﻿@using AplicacaoWebCantina.Models.Clientes
 @model ClientesModel
 
+<script src="~/js/site.js"></script>
+
 <div class="container mt-4">
 
     <h1 class="text-center mb-4 fs-0">Clientes</h1>
 
     <div class="mb-3">
-        <a class="btn btn-primary btn-lg me-2" asp-controller="Clientes"
+        <a id="addButton" class="btn btn-primary btn-lg me-2" asp-controller="Clientes"
         asp-action="Record">Adicionar</a>
     </div>
 
