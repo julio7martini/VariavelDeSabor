@@ -1,56 +1,36 @@
-﻿@model IEnumerable<AplicacaoWebCantina.Models.Pedido.Pedido>
+﻿@model List<AplicacaoCantina.Utils.Entidades.Pedido>
 
 @{
-    ViewData["Title"] = "Lista de Pedidos";
+    ViewData["Title"] = "Pedidos";
 }
 
-<h2>@ViewData["Title"]</h2>
+<h2>Pedidos</h2>
 
-<div class="mb-3">
-    <a href="@Url.Action("Adicionar", "Pedido")" class="btn btn-success">
-        Adicionar Novo Pedido
-    </a>
-</div>
-
-<table class="table table-striped">
+<table class="table">
     <thead>
         <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Produto</th>
-            <th scope="col">Quantidade</th>
-            <th scope="col">Preço</th>
-            <th scope="col">Total</th>
-            <th scope="col">Data</th>
-            <th scope="col">Ações</th>
+            <th>ID</th>
+            <th>Data do Pedido</th>
+            <th>Valor Total</th>
+            <th>Cliente ID</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var pedido in Model)
         {
             <tr>
-                <td>@pedido.Id</td>
-                <td>@pedido.NomeProduto</td>
-                <td>@pedido.Quantidade</td>
-                <td>@pedido.Preco.ToString("C2")</td>
-                <td>@pedido.Total.ToString("C2")</td>
-                <td>@pedido.DateTime.ToString("dd/MM/yyyy HH:mm")</td>
+                <td>@pedido.ID</td>
+                <td>@pedido.DataPedido</td>
+                <td>@pedido.ValorTotal</td>
+                <td>@pedido.ClienteID</td>
                 <td>
-                    <a href="@Url.Action("Editar", "Pedido", new { id = pedido.Id })" class="btn btn-warning btn-sm">Editar</a>
-
-                    <!-- Formulário para remover o pedido -->
-                    <form asp-action="Remover" method="post" style="display:inline;">
-                        <input type="hidden" name="id" value="@pedido.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm">Remover</button>
-                    </form>
+                    <a href="@Url.Action("Edit", "Pedido", new { id = pedido.ID })">Editar</a> |
+                    <a href="@Url.Action("Delete", "Pedido", new { id = pedido.ID })">Excluir</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
 
-@if (!Model.Any())
-{
-    <div class="alert alert-info">
-        Nenhum pedido registrado.
-    </div>
-}
+<a href="@Url.Action("Create", "Pedido")">Criar Novo Pedido</a>

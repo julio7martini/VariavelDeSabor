@@ -1,81 +1,89 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using AplicacaoWebCantina.Models.Pedido;
+﻿using AplicacaoCantina.Models;
+using AplicacaoCantina.Utils.Entidades;
+using Microsoft.AspNetCore.Mvc;
+using System;
 
-namespace AplicacaoWebCantina.Controllers
+namespace AplicacaoCantina.Controllers
 {
     public class PedidoController : Controller
     {
-        // Lista estática para persistir pedidos
-        private static Pedidos _pedidos = new Pedidos();
+        private readonly PedidoModel _pedidoModel;
 
-        // Exibe todos os pedidos
+        public PedidoController()
+        {
+            _pedidoModel = new PedidoModel();
+        }
+
+        // GET: Pedido
         public IActionResult Index()
         {
-            var pedidos = _pedidos.ObterTodos();
-            return View(pedidos); 
+            var pedidos = _pedidoModel.GetAllPedidos();
+            return View(pedidos);
         }
 
-        // Exibe o formulário para adicionar um pedido
-        public IActionResult Adicionar()
+        // GET: Pedido/Create
+        public IActionResult Create()
         {
-            return View(new Pedido()); 
+            return View();
         }
 
-        // Processa o pedido para ser adicionado
+        // POST: Pedido/Create
         [HttpPost]
-        public IActionResult Adicionar(Pedido pedido)
+        public IActionResult Create(Pedido pedido)
         {
             if (ModelState.IsValid)
             {
-                _pedidos.Adicionar(pedido); 
-                return RedirectToAction("Index"); 
+                _pedidoModel.CreatePedido(pedido);
+                return RedirectToAction("Index");
             }
-            return View(pedido); 
+            return View(pedido);
         }
 
-        // Exibe o formulário para editar um pedido
-        public IActionResult Editar(int id)
+        // GET: Pedido/Edit/5
+        public IActionResult Edit(int id)
         {
-            var pedido = _pedidos.ObterPorId(id);
+            var pedido = _pedidoModel.GetPedidoById(id);
             if (pedido == null)
             {
-                return NotFound(); 
+                return NotFound();
             }
-            return View(pedido); 
+            return View(pedido);
         }
 
-        // Processa a edição do pedido
+        // POST: Pedido/Edit/5
         [HttpPost]
-        public IActionResult Editar(Pedido pedidoAtualizado)
+        public IActionResult Edit(int id, Pedido pedido)
         {
+            if (id != pedido.ID)
+            {
+                return NotFound();
+            }
+
             if (ModelState.IsValid)
             {
-                var pedidoExistente = _pedidos.ObterPorId(pedidoAtualizado.Id);
-                if (pedidoExistente != null)
-                {
-                    // Atualiza o pedido na lista
-                    pedidoExistente.NomeProduto = pedidoAtualizado.NomeProduto;
-                    pedidoExistente.Quantidade = pedidoAtualizado.Quantidade;
-                    pedidoExistente.Preco = pedidoAtualizado.Preco;
-                    return RedirectToAction("Index"); // Redireciona para a página de listagem de pedidos
-                }
-                return NotFound(); 
+                _pedidoModel.UpdatePedido(pedido);
+                return RedirectToAction("Index");
             }
-            return View(pedidoAtualizado); 
+            return View(pedido);
         }
 
-
-        [HttpPost]
-        public IActionResult Remover(int id)
+        // GET: Pedido/Delete/5
+        public IActionResult Delete(int id)
         {
-            var pedido = _pedidos.ObterPorId(id);
-            if (pedido != null)
+            var pedido = _pedidoModel.GetPedidoById(id);
+            if (pedido == null)
             {
-                _pedidos.Remover(id); // Remove o pedido pela ID
+                return NotFound();
             }
-            return RedirectToAction("Index"); // Redireciona para a página de listagem de pedidos
+            return View(pedido);
         }
 
-
+        // POST: Pedido/Delete/5
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            _pedidoModel.DeletePedido(id);
+            return RedirectToAction("Index");
+        }
     }
 }

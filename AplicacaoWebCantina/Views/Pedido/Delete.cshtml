@@ -1,0 +1,14 @@
+﻿@model AplicacaoCantina.Utils.Entidades.Pedido
+
+@{
+    ViewData["Title"] = "Excluir Pedido";
+}
+
+<h2>Excluir Pedido</h2>
+
+<p>Tem certeza de que deseja excluir o pedido @Model.ID?</p>
+
+<form method="post">
+    <button type="submit" class="btn btn-danger">Excluir</button>
+    <a href="@Url.Action("Index", "Pedido")" class="btn btn-secondary">Cancelar</a>
+</form>
